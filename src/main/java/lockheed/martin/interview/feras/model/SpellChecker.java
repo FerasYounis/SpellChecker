@@ -2,29 +2,29 @@ package lockheed.martin.interview.feras.model;
 
 import java.util.ArrayList;
 
-public class SpellChecker implements Runnable{
-	
+public class SpellChecker extends Thread {
+
 	private ArrayList<String> dictionary;
 	private String wordToCheck;
 	private boolean correct;
-	
+
 	public SpellChecker(ArrayList<String> dictionary, String wordToCheck) {
-		
+
 		this.dictionary = dictionary;
 		this.wordToCheck = wordToCheck;
 		this.correct = false;
 	}
-	
-	public void checkIfwordExistInTheList(){
-		
-		for(String wordFromDictionary : dictionary){
-			if(wordToCheck.compareToIgnoreCase(wordFromDictionary)== 0){
+
+	public void checkIfwordExistInTheList() {
+
+		for (String wordFromDictionary : dictionary) {
+			if (wordToCheck.equalsIgnoreCase(wordFromDictionary)) {
 				setCorrect(true);
 				System.out.println("Found it!");
-				System.out.println("Word To Check: "+wordToCheck+". Word from dictionary: "+wordFromDictionary);
+				System.out.println("Word To Check: " + wordToCheck + ". Word from dictionary: " + wordFromDictionary);
 			}
 		}
-		
+
 	}
 
 	/**
@@ -35,7 +35,8 @@ public class SpellChecker implements Runnable{
 	}
 
 	/**
-	 * @param wordToCheck the wordToCheck to set
+	 * @param wordToCheck
+	 *            the wordToCheck to set
 	 */
 	public void setWordToCheck(String wordToCheck) {
 		this.wordToCheck = wordToCheck;
@@ -49,14 +50,16 @@ public class SpellChecker implements Runnable{
 	}
 
 	/**
-	 * @param correct the correct to set
+	 * @param correct
+	 *            the correct to set
 	 */
 	public void setCorrect(boolean correct) {
 		this.correct = correct;
 	}
 
 	/**
-	 * @param dictionary the dictionary to set
+	 * @param dictionary
+	 *            the dictionary to set
 	 */
 	public void setDictionary(ArrayList<String> dictionary) {
 		this.dictionary = dictionary;
@@ -64,10 +67,8 @@ public class SpellChecker implements Runnable{
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+		checkIfwordExistInTheList();
+
 	}
-	
-	
 
 }
