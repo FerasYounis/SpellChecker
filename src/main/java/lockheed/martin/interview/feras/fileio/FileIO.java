@@ -15,46 +15,46 @@ import java.util.Scanner;
 
 public class FileIO {
 
-	public static String saveChanges(String fileName, HashMap<String, String> correctedWords) {
-		try {
+    public static String saveChanges(String fileName, HashMap<String, String> correctedWords) {
+        try {
 
-			Path path = Paths.get(fileName);
-			Charset charset = StandardCharsets.UTF_8;
-			String content = new String(Files.readAllBytes(path), charset);
-			for (Entry<String, String> entry : correctedWords.entrySet()) {
-				String key = entry.getKey();
-				String value = entry.getValue();
-				content = content.replaceAll(key, value);
-			}
+            Path path = Paths.get(fileName);
+            Charset charset = StandardCharsets.UTF_8;
+            String content = new String(Files.readAllBytes(path), charset);
+            for (Entry<String, String> entry : correctedWords.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                content = content.replaceAll(key, value);
+            }
 
-			Files.write(path, content.getBytes(charset));
+            Files.write(path, content.getBytes(charset));
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-		return "SUCCESS";
-	}
+        return "SUCCESS";
+    }
 
-	public static ArrayList<String> read(File file) {
-		ArrayList wordsList = new ArrayList<String>();
-		try {
-			// BufferedReader in = new BufferedReader(new
-			// FileReader("<Filename>"));
-			Scanner in = new Scanner(file);
-			while (in.hasNext()) {
-				wordsList.add(in.next());
+    public static ArrayList<String> read(File file) {
+        ArrayList wordsList = new ArrayList<String>();
+        try {
+            // BufferedReader in = new BufferedReader(new
+            // FileReader("<Filename>"));
+            Scanner in = new Scanner(file);
+            while (in.hasNext()) {
+                wordsList.add(in.next());
 
-			}
-			in.close();
+            }
+            in.close();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return wordsList;
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return wordsList;
 
-	}
+    }
 
 }
