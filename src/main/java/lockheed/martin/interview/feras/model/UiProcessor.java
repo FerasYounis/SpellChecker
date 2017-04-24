@@ -2,7 +2,6 @@ package lockheed.martin.interview.feras.model;
 
 
 import lockheed.martin.interview.feras.fileio.FileIO;
-import lockheed.martin.interview.feras.ui.UiEventListener;
 
 import javax.swing.*;
 import java.util.ArrayList;

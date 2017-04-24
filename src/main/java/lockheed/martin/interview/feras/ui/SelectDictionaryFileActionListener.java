@@ -1,6 +1,8 @@
 package lockheed.martin.interview.feras.ui;
 
 
+import lockheed.martin.interview.feras.model.UiEventListener;
+
 import java.util.ArrayList;
 
 public class SelectDictionaryFileActionListener extends SelectTextFileActionListener {

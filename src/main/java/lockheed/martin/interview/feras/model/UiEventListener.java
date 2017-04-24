@@ -1,4 +1,4 @@
-package lockheed.martin.interview.feras.ui;
+package lockheed.martin.interview.feras.model;
 
 
 import java.util.ArrayList;
